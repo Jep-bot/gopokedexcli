@@ -8,11 +8,27 @@ import (
 // Main function
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
+	commandRegistry := getCommands()
+	commandConfing := config{
+		Next: "",
+		Previous: "",
+	}
 	for {
 		fmt.Printf("Pokedex > ")
 		scanner.Scan()
 		input := scanner.Text()
-		cleanInputText := cleanInput(input) 
-		fmt.Printf("Your command was: %v\n", cleanInputText[0])
+		cleanTextList := cleanInput(input) 
+		switch cleanTextList[0] {
+			case "mapb":
+				commandRegistry["mapb"].callback(&commandConfing)
+			case "map":
+				commandRegistry["map"].callback(&commandConfing)
+			case "help":
+				commandRegistry["help"].callback(&commandConfing)
+			case "exit":
+				commandRegistry["exit"].callback(&commandConfing)
+			default:
+				fmt.Println("Command not supported")
+			}	
 	}
 }
