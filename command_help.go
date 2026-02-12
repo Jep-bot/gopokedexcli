@@ -1,9 +1,10 @@
 package main
 import (
 	"fmt"
+	pokecache "github.com/Jep-bot/gopokedexcli/internal/pokecache"
 )
 
-func commandHelp(urls *config ) error{
+func commandHelp(urls *config, cache *pokecache.Cache) error{
 	fmt.Println("Welcome to the Pokedex!")
 	fmt.Println("Usage:")
 	fmt.Println()

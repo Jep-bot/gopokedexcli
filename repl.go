@@ -1,12 +1,13 @@
 package main
 import (
 	"strings"
+	pokecache "github.com/Jep-bot/gopokedexcli/internal/pokecache"
 )
 
 type cliCommand struct {
 	name        string
 	description string
-	callback    func(*config) error
+	callback    func(*config, *pokecache.Cache) error
 }
 
 type config struct {
@@ -33,7 +34,7 @@ func getCommands() map[string]cliCommand{
     },
 		"mapb": {
         name:        "mapb",
-        description: "Displays the previous results of the map commaad",
+        description: "Displays the previous results of the map command",
         callback:    commandMapB,
     },
 	}
