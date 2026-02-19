@@ -13,6 +13,7 @@ type cliCommand struct {
 type config struct {
 	Next	string
 	Previous string
+	Arg string
 }
 
 func getCommands() map[string]cliCommand{
@@ -36,6 +37,11 @@ func getCommands() map[string]cliCommand{
         name:        "mapb",
         description: "Displays the previous results of the map command",
         callback:    commandMapB,
+    },
+		"explore": {
+        name:        "explore",
+        description: "Displays a list of all pokemon from the provided loaction name",
+        callback:    commandExplore,
     },
 	}
 }
