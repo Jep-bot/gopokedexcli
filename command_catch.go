@@ -337,7 +337,7 @@ func commandCatch(urls *config, cache *pokecache.Cache) error{
 	//fmt.Println(pokemon.BaseExperience)
 	catch := rand.Intn(pokemon.BaseExperience)
 	//fmt.Println(catch)
-	if  catch > int(float64(pokemon.BaseExperience) * 0.7)  {
+	if  catch > int(float64(pokemon.BaseExperience) * 0.6)  {
 		fmt.Printf("%v was caught!\n", urls.Arg)
 		urls.Pokedex[urls.Arg] = pokemon
 	}else{

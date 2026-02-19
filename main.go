@@ -30,6 +30,8 @@ func main() {
 				commandRegistry["mapb"].callback(&commandConfing, &cache)
 			case "map":
 				commandRegistry["map"].callback(&commandConfing, &cache)
+			case "pokedex":
+				commandRegistry["pokedex"].callback(&commandConfing, &cache)
 			case "explore":
 				if len(cleanTextList) >= 2 {
 					commandConfing.Arg = cleanTextList[1]
@@ -44,8 +46,12 @@ func main() {
 				}else{
 					fmt.Println("no pokemon provided")
 				}
-				for key,_ := range commandConfing.Pokedex{
-					fmt.Println(key)
+			case "inspect":
+				if len(cleanTextList) >= 2 {
+					commandConfing.Arg = cleanTextList[1]
+					commandRegistry["inspect"].callback(&commandConfing, &cache)
+				}else{
+					fmt.Println("no pokemon provided")
 				}
 			case "help":
 				commandRegistry["help"].callback(&commandConfing, &cache)
