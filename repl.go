@@ -14,6 +14,7 @@ type config struct {
 	Next	string
 	Previous string
 	Arg string
+	Pokedex map[string]Pokemon
 }
 
 func getCommands() map[string]cliCommand{
@@ -43,8 +44,14 @@ func getCommands() map[string]cliCommand{
         description: "Displays a list of all pokemon from the provided loaction name",
         callback:    commandExplore,
     },
+		"catch": {
+        name:        "catch",
+        description: "Try to catch the provided Pokemon",
+        callback:    commandCatch,
+    },
 	}
 }
+
 func cleanInput(text string) []string{
     // ...
 		text = strings.TrimSpace(text) 
